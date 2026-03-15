@@ -27,3 +27,22 @@ platform using Spring Boot and Kafka.
 
 ### Next step
 Build the order-service Spring Boot skeleton with REST endpoint and Kafka producer.
+
+## Day 2 — order-service Kafka Producer
+
+Built the order-service with a full REST API and Kafka producer.
+
+### What I implemented
+- Order entity with JPA and H2 database
+- OrderEvent model for Kafka messaging
+- KafkaTemplate-based producer publishing to order.created topic
+- REST endpoint POST /api/orders to accept customer orders
+- Transactional flow: save order to DB then publish event
+
+### Key learning
+- KafkaTemplate.send() is non-blocking — the event is published async
+- Used @Transactional to ensure DB save and event publish happen together
+- Idempotency keys (eventId as UUID) generated per event to prevent duplicate processing
+
+### Next step
+Build inventory-service to consume order.created events.
