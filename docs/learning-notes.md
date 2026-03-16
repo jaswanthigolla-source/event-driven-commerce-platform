@@ -84,3 +84,28 @@ Run docker-compose up and test the full event flow end to end.
 4. Create docker/docker-compose.yml → paste content → commit
 
 5. Update learning-notes.md → commit
+
+## Day 4 — Docker, CI/CD and Testing
+
+Containerized all 4 services and ran the full event flow end to end.
+
+### What I implemented
+- Multi-stage Dockerfile for each service (build + run stages)
+- Updated docker-compose with healthchecks and proper startup order
+- GitHub Actions CI pipeline that builds all 4 services on every push
+- Root .gitignore and CONTRIBUTING.md for project hygiene
+
+### Key learnings
+- Multi-stage Docker builds keep image size small by not including Maven in final image
+- Healthchecks in docker-compose ensure Kafka is ready before services start
+- KAFKA_ADVERTISED_LISTENERS needs two listeners: one for internal Docker network,
+  one for external localhost access
+- GitHub Actions runs in parallel for each service — much faster than sequential
+
+### Full event flow tested
+- POST /api/orders → order.created → inventory.reserved → payment.success → notification sent
+- Watched all events flow through Kafka UI at localhost:8080
+- Confirmed idempotency by sending same request twice
+
+### Next step
+Add Kubernetes manifests and deploy to local cluster with minikube.
