@@ -109,3 +109,24 @@ Containerized all 4 services and ran the full event flow end to end.
 
 ### Next step
 Add Kubernetes manifests and deploy to local cluster with minikube.
+
+## Day 5 — Kubernetes Manifests
+
+Added Kubernetes manifests for all 4 services and Kafka.
+
+### What I implemented
+- Deployment manifests with replicas, resource limits, liveness and readiness probes
+- Service manifests for internal and external access
+- ConfigMap for centralised Kafka configuration
+- order-service exposed as LoadBalancer (external access)
+- All other services as ClusterIP (internal only)
+
+### Key learnings
+- Liveness probe restarts a container if it becomes unhealthy
+- Readiness probe stops traffic to a pod until it is ready to serve
+- Resource requests guarantee minimum resources, limits prevent overconsumption
+- ConfigMap decouples configuration from container images
+- replicas: 2 means Kubernetes runs 2 instances for high availability
+
+### Next step
+Polish README with CI badge and final screenshots.
