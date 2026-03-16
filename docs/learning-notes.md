@@ -46,3 +46,41 @@ Built the order-service with a full REST API and Kafka producer.
 
 ### Next step
 Build inventory-service to consume order.created events.
+
+## Day 3 — Kafka Consumers and Docker Setup
+
+Built inventory-service, payment-service, and notification-service.
+Wired everything together with Docker Compose.
+
+### What I implemented
+- Kafka consumers using @KafkaListener in Spring Boot
+- Each service consumes one topic and produces to the next
+- notification-service listens to both payment.success and payment.failed
+- Docker Compose runs Zookeeper, Kafka, Kafka-UI and all 4 services
+
+### Key learnings
+- @KafkaListener automatically deserializes JSON back into Java objects
+- Consumer group IDs ensure each service processes events independently
+- Kafka-UI at localhost:8080 lets you visually monitor all topics and messages
+- Docker networks allow containers to communicate using service names
+
+### Next step
+Run docker-compose up and test the full event flow end to end.
+```
+
+---
+
+## 🎯 Your Exact Order of Actions:
+```
+1. Generate inventory-service at start.spring.io → extract into folder
+   → create all 7 files → commit each one separately
+
+2. Generate payment-service at start.spring.io → extract into folder
+   → create all 6 files → commit each one separately
+
+3. Generate notification-service at start.spring.io → extract into folder
+   → create all 4 files → commit each one separately
+
+4. Create docker/docker-compose.yml → paste content → commit
+
+5. Update learning-notes.md → commit
