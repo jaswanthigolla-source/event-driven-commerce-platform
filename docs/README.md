@@ -1,3 +1,4 @@
+![CI Pipeline](https://github.com/jaswanthigolla-source/event-driven-commerce-platform/actions/workflows/ci.yml/badge.svg)
 # Event-Driven Commerce Platform
 
 A production-grade event-driven microservices platform built with Java, Spring Boot,
@@ -119,14 +120,15 @@ event-driven-commerce-platform/
 ## Roadmap
 
 - [x] Project structure and architecture design
-- [ ] order-service — REST API and Kafka producer
-- [ ] inventory-service — Kafka consumer and stock reservation
-- [ ] payment-service — Kafka consumer and payment processing
-- [ ] notification-service — email and SMS on events
-- [ ] Docker Compose for local development
-- [ ] Kubernetes manifests for all services
+- [x] order-service — REST API and Kafka producer
+- [x] inventory-service — Kafka consumer and stock reservation
+- [x] payment-service — Kafka consumer and payment processing
+- [x] notification-service — email and SMS on events
+- [x] Docker Compose for local development
+- [x] Kubernetes manifests for all services
+- [x] GitHub Actions CI/CD pipeline
 - [ ] Prometheus and Grafana observability stack
-- [ ] GitHub Actions CI/CD pipeline
+- [ ] Helm charts for Kubernetes deployment
 
 ---
 
